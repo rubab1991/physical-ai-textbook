@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git fetch --all --prune)",
+      "Bash(tree physical-ai-humanoid-robotics-textbook)",
+      "Bash(.specify/scripts/powershell/setup-plan.ps1 -Json)",
+      "Bash(.specify/scripts/powershell/check-prerequisites.ps1 -Json -PathsOnly)",
+      "Bash(.specify/scripts/powershell/check-prerequisites.ps1 -Json -RequireTasks -IncludeTasks)",
+      "Bash(git rev-parse --git-dir)",
+      "Bash(.specify/scripts/powershell/check-prerequisites.ps1 -Json)",
+      "Bash(tree /f \"D:\\spec-kit-plus\\physical-ai-book\\physical-ai-humanoid-robotics-textbook\")",
+      "Bash(dir \"D:\\spec-kit-plus\\physical-ai-book\\physical-ai-humanoid-robotics-textbook\" /s)",
+      "Bash(ls -la \"D:\\spec-kit-plus\\physical-ai-book\\physical-ai-humanoid-robotics-textbook\\src\"/*)",
+      "Bash(npm --version)",
+      "Bash(npm run start)",
+      "Bash(pip install -r requirements.txt)",
+      "Bash(python -c \"import fastapi; print(''FastAPI available'')\")",
+      "Bash(pip install fastapi uvicorn python-dotenv)",
+      "Bash(pip install python-jose[cryptography] passlib[bcrypt] python-multipart qdrant-client openai)",
+      "Bash(npm start)",
+      "Bash(npx docusaurus start)",
+      "Bash(cat /tmp/claude/tasks/baeaf1a.output)",
+      "Bash(timeout 10 npx docusaurus start --port 3004)",
+      "Bash(pkill -f docusaurus)",
+      "Bash(npm install postcss-import --save-dev)",
+      "Bash(npm run build)",
+      "Bash(vercel --token)"
+    ]
+  }
+}

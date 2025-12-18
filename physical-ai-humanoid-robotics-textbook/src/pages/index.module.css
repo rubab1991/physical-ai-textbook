@@ -1,0 +1,577 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * locally scoped CSS by default.
+ */
+
+.heroBanner {
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+  color: white;
+}
+
+.backgroundElements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gridLines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(76, 201, 240, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(76, 201, 240, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+.gradientBlob {
+  position: absolute;
+  top: 20%;
+  right: 10%;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(106, 76, 240, 0.15) 0%, transparent 70%);
+  filter: blur(40px);
+  animation: pulse 8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.heroText {
+  flex: 1;
+  max-width: 600px;
+}
+
+.heroVisual {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.robotIllustration {
+  position: relative;
+  width: 240px;
+  height: 340px;
+}
+
+.robotHead {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95px;
+  height: 95px;
+  background:
+    radial-gradient(circle at 30% 30%, #f0f0f0, #d0d0d0),
+    linear-gradient(145deg, #e0e0e0, #a0a0a0);
+  border-radius: 40% 40% 30% 30%;
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.4),
+    inset 0 2px 10px rgba(255, 255, 255, 0.6),
+    inset 0 -2px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  border: 1px solid #c0c0c0;
+  overflow: hidden;
+}
+
+.robotFace {
+  position: relative;
+  width: 70%;
+  height: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.robotEyeLeft,
+.robotEyeRight {
+  width: 14px;
+  height: 20px;
+  background:
+    radial-gradient(circle at 30% 40%, #4cc9f0, #3a0ca3),
+    linear-gradient(to bottom, #ffffff, #e0e0e0);
+  border-radius: 50%;
+  box-shadow:
+    0 0 12px rgba(76, 201, 240, 0.7),
+    inset 0 1px 3px rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(76, 201, 240, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.robotEyeLeft::after,
+.robotEyeRight::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #0d1b2a;
+  border-radius: 50%;
+  top: 6px;
+  left: 4px;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+}
+
+.robotEyeHighlight {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  top: 4px;
+  left: 5px;
+}
+
+.robotMouth {
+  position: absolute;
+  bottom: 10px;
+  width: 30px;
+  height: 4px;
+  background: linear-gradient(to right, #a0a0a0, #808080);
+  border-radius: 2px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.robotNeck {
+  position: absolute;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 18px;
+  background:
+    linear-gradient(145deg, #a0a0a0, #808080),
+    radial-gradient(circle at center, #b0b0b0, #909090);
+  z-index: 5;
+  border-radius: 8px;
+  box-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.3),
+    inset 0 1px 3px rgba(255, 255, 255, 0.4);
+}
+
+.robotBody {
+  position: absolute;
+  top: 108px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 140px;
+  background:
+    linear-gradient(160deg, #f0f0f0 0%, #d0d0d0 15%, #e0e0e0 85%, #c0c0c0 100%),
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3), transparent 70%);
+  border-radius: 30px 30px 20px 20px;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    inset 0 2px 15px rgba(255, 255, 255, 0.5),
+    inset 0 -2px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  border: 1px solid #b0b0b0;
+  overflow: hidden;
+}
+
+.robotChestPanel {
+  width: 80px;
+  height: 80px;
+  background:
+    radial-gradient(circle, rgba(76, 201, 240, 0.2) 0%, transparent 70%),
+    linear-gradient(145deg, #e0e0e0, #c0c0c0);
+  border: 2px solid rgba(76, 201, 240, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow:
+    inset 0 0 15px rgba(0, 0, 0, 0.2),
+    0 0 10px rgba(76, 201, 240, 0.3);
+  overflow: hidden;
+}
+
+.robotChestPanel::before {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background:
+    radial-gradient(circle, rgba(76, 201, 240, 0.6) 0%, transparent 70%),
+    linear-gradient(45deg, #4cc9f0, #3a0ca3);
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: pulse 2s ease-in-out infinite;
+  box-shadow: 0 0 15px rgba(76, 201, 240, 0.6);
+}
+
+.robotChestPanel::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  top: 15px;
+  left: 15px;
+}
+
+.robotShoulders {
+  position: absolute;
+  top: 103px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 130px;
+  height: 25px;
+  background:
+    linear-gradient(145deg, #c0c0c0, #a0a0a0),
+    radial-gradient(circle at center, #d0d0d0, #b0b0b0);
+  border-radius: 12px;
+  z-index: 6;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 4px rgba(255, 255, 255, 0.5);
+}
+
+.robotArmLeft,
+.robotArmRight {
+  position: absolute;
+  top: 110px;
+  width: 22px;
+  height: 90px;
+  background:
+    linear-gradient(160deg, #e0e0e0 0%, #c0c0c0 15%, #d0d0d0 85%, #b0b0b0 100%),
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent 70%);
+  border-radius: 12px;
+  z-index: 4;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    inset 0 1px 5px rgba(255, 255, 255, 0.4);
+  border: 1px solid #b0b0b0;
+}
+
+.robotArmLeft {
+  left: 38px;
+  transform: rotate(-25deg);
+}
+
+.robotArmRight {
+  right: 38px;
+  transform: rotate(25deg);
+}
+
+.robotJoint {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  background:
+    radial-gradient(circle, #f0f0f0, #c0c0c0),
+    linear-gradient(145deg, #d0d0d0, #a0a0a0);
+  border-radius: 50%;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.4),
+    inset 0 1px 4px rgba(255, 255, 255, 0.6);
+  border: 1px solid #b0b0b0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.robotShoulderJointLeft {
+  position: absolute;
+  top: 100px;
+  left: 42px;
+  transform: rotate(-25deg);
+}
+
+.robotShoulderJointRight {
+  position: absolute;
+  top: 100px;
+  right: 42px;
+  transform: rotate(25deg);
+}
+
+.robotElbowJointLeft {
+  position: absolute;
+  top: 155px;
+  left: 25px;
+  transform: rotate(-25deg);
+}
+
+.robotElbowJointRight {
+  position: absolute;
+  top: 155px;
+  right: 25px;
+  transform: rotate(25deg);
+}
+
+.robotHandLeft,
+.robotHandRight {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background:
+    radial-gradient(circle, #f0f0f0, #d0d0d0),
+    linear-gradient(145deg, #e0e0e0, #c0c0c0);
+  border-radius: 8px 8px 12px 12px;
+  box-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 3px rgba(255, 255, 255, 0.5);
+  border: 1px solid #b0b0b0;
+}
+
+.robotHandLeft {
+  top: 195px;
+  left: 18px;
+  transform: rotate(-25deg);
+}
+
+.robotHandRight {
+  top: 195px;
+  right: 18px;
+  transform: rotate(25deg);
+}
+
+.circuitPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle, rgba(76, 201, 240, 0.2) 1px, transparent 1px),
+    radial-gradient(circle, rgba(58, 12, 163, 0.2) 1px, transparent 1px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+  opacity: 0.3;
+  animation: circuitFlow 6s linear infinite;
+  border-radius: 35px;
+  z-index: 3;
+}
+
+.glowEffect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 170%;
+  height: 170%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(76, 201, 240, 0.1) 0%, transparent 70%);
+  filter: blur(30px);
+  z-index: 1;
+}
+
+.aiAura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 190%;
+  height: 190%;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent,
+    rgba(76, 201, 240, 0.15),
+    transparent,
+    rgba(58, 12, 163, 0.15),
+    transparent
+  );
+  filter: blur(20px);
+  animation: rotate 20s linear infinite;
+  z-index: 2;
+}
+
+@keyframes circuitFlow {
+  0% {
+    background-position: 0 0, 12px 12px;
+  }
+  100% {
+    background-position: 25px 25px, 37px 37px;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+.heroTitle {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(90deg, #4cc9f0, #f72585);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.heroSubtitle {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #e0e1dd;
+  font-weight: normal;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.buttons .button {
+  position: relative;
+  overflow: hidden;
+}
+
+.aboutSection {
+  padding: 4rem 0;
+  background-color: #f8f9fa;
+}
+
+.aboutSection h2 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.aboutSection p {
+  color: #34495e;
+  line-height: 1.6;
+}
+
+.curriculumSection {
+  padding: 4rem 0;
+  background-color: #eef2f7;
+}
+
+.sectionTitle {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #2c3e50;
+  font-size: 2.5rem;
+}
+
+.moduleCard {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.moduleCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.moduleCard h3 {
+  color: #25c2a0;
+  margin-bottom: 0.5rem;
+}
+
+.moduleDescription {
+  color: #7f8c8d;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.chapterList {
+  list-style: none;
+  padding: 0;
+}
+
+.chapterList li {
+  padding: 0.25rem 0;
+  border-bottom: 1px solid #eee;
+  color: #34495e;
+}
+
+.chapterList li:last-child {
+  border-bottom: none;
+}
+
+@media screen and (max-width: 996px) {
+  .heroContent {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .heroText {
+    max-width: 100%;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+
+  .buttons .button {
+    width: 100%;
+    max-width: 300px;
+  }
+}
