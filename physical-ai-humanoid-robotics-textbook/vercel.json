@@ -2,10 +2,11 @@
   "buildCommand": "npm run build",
   "outputDirectory": "build",
   "framework": "docusaurus",
-  "routes": [
+  "trailingSlash": false,
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "^/((?!asset|static|favicon\\.ico|sitemap\\.xml|robots\\.txt|manifest\\.json).*)$",
+      "destination": "/index.html"
     }
   ]
 }
