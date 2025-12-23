@@ -1,0 +1,131 @@
+Metadata-Version: 2.4
+Name: website-embedding-pipeline
+Version: 0.1.0
+Summary: A pipeline for crawling Docusaurus websites and generating embeddings for RAG systems
+Author-email: Developer <developer@example.com>
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: requests>=2.31.0
+Requires-Dist: beautifulsoup4>=4.12.0
+Requires-Dist: cohere>=4.0.0
+Requires-Dist: qdrant-client>=1.9.0
+Requires-Dist: python-dotenv>=1.0.0
+Requires-Dist: pytest>=8.0.0
+Provides-Extra: dev
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: flake8>=6.0.0; extra == "dev"
+Requires-Dist: mypy>=1.0.0; extra == "dev"
+Requires-Dist: isort>=5.0.0; extra == "dev"
+
+# Website Embedding Pipeline
+
+A Python-based pipeline for crawling Docusaurus websites, extracting content, generating embeddings, and storing them in Qdrant for RAG systems.
+
+## Overview
+
+This pipeline is designed to:
+- Crawl deployed Docusaurus websites and extract clean text content
+- Generate embeddings using Cohere models
+- Store embeddings with metadata in Qdrant Cloud collections
+- Support reproducible pipeline execution
+
+## Prerequisites
+
+- Python 3.11+
+- `uv` package manager
+- Cohere API key
+- Qdrant Cloud account and API key
+
+## Setup
+
+1. Clone the repository
+2. Navigate to the `backend` directory
+3. Install dependencies using uv:
+
+```bash
+uv sync
+```
+
+4. Copy the environment file and add your API keys:
+
+```bash
+cp .env.example .env
+# Edit .env with your Cohere and Qdrant API keys
+```
+
+## Usage
+
+### Run the complete pipeline
+
+```bash
+uv run src/main.py --url https://your-docusaurus-site.com --collection docs_embeddings
+```
+
+### Run with custom configuration
+
+```bash
+uv run src/main.py --config config/pipeline_config.json
+```
+
+### Run individual components
+
+**Crawl only**:
+```bash
+uv run src/main.py crawl --url https://your-docusaurus-site.com
+```
+
+**Process and embed**:
+```bash
+uv run src/main.py embed --input crawled_data.json
+```
+
+**Store in Qdrant**:
+```bash
+uv run src/main.py store --input embedded_data.json
+```
+
+## Configuration Options
+
+- `--url`: The base URL of the Docusaurus site to crawl
+- `--collection`: Qdrant collection name (default: docs_embeddings)
+- `--chunk-size`: Maximum size of text chunks (default: 512 tokens)
+- `--overlap`: Overlap between chunks (default: 64 tokens)
+- `--max-depth`: Maximum crawl depth (default: 3)
+- `--delay`: Delay between requests in seconds (default: 1-3 seconds)
+
+## Project Structure
+
+```
+backend/
+├── src/
+│   ├── crawler/           # Web crawling functionality
+│   ├── text_processor/    # Text cleaning and chunking
+│   ├── embedding/         # Embedding generation
+│   ├── storage/           # Qdrant storage operations
+│   ├── config/            # Configuration management
+│   ├── utils/             # Utility functions
+│   └── main.py            # Main entry point
+├── tests/
+│   ├── unit/              # Unit tests
+│   └── integration/       # Integration tests
+├── pyproject.toml         # Project dependencies
+└── .env.example           # Environment variable template
+```
+
+## Development
+
+To run tests:
+
+```bash
+uv run pytest
+```
+
+To run with specific environment:
+
+```bash
+uv run src/main.py --url https://physical-ai-textbook-tau-virid.vercel.app/
+```
+
+## License
+
+[Add your license here]
